@@ -36,6 +36,9 @@ class ProductTest < ActiveSupport::TestCase
     assert product.valid?
   end
 
+
+  
+
   def new_product(image_url)
     Product.new(title:       "My Book Title",
                 description: "yyy",
