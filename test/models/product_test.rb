@@ -37,7 +37,15 @@ class ProductTest < ActiveSupport::TestCase
   end
 
 
-  
+  test "size title" do
+    product = Product.new(title:"T",
+                          description: "yyy", 
+                          price:       1, 
+                          image_url:   "fred.gif")
+
+    assert product.invalid?
+    assert_equal ["10 character minimum"], product.errors[:title]
+  end
 
   def new_product(image_url)
     Product.new(title:       "My Book Title",
