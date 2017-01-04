@@ -12,4 +12,10 @@ assert_select '.price', /\$[,\d]+\.\d\d/
 assert_select "#columns #meta h6"
   end
 
+  test "markup needed for store.js.coffee is in place" do
+get store_index_url
+assert_select '.store .entry > img', 3
+assert_select '.entry input[type=submit]', 3
+end
+
 end

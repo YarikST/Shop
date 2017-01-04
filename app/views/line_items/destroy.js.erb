@@ -1,0 +1,16 @@
+
+
+var obj = document.getElementById(<%=@item.id%>);
+if (obj == null) {
+	obj = $('#current_item');
+}else{
+obj = $('#<%=@item.id%>');
+}
+
+if(<%=@item.quantity%>==0){
+obj.html(" ");
+}else {
+$("#quantity").html(" <td id='quantity'><%= @item.quantity %>&times;</td>");
+}
+
+$(".total_cell").html(" <td class='total_cell'><%= number_to_currency(Cart.find(@item.cart).total_price) %></td>");
